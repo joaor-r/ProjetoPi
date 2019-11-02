@@ -34,8 +34,8 @@ public void LoadTable(){
         
         //Defino o tamanho para cada coluna
 //        tblClientes.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
-        tblProduto.getColumnModel().getColumn(0).setPreferredWidth(300);
-        tblProduto.getColumnModel().getColumn(1).setPreferredWidth(100);
+       // tblProduto.getColumnModel().getColumn(0).setPreferredWidth(300);
+        //tblProduto.getColumnModel().getColumn(1).setPreferredWidth(100);
     
 }
     /**

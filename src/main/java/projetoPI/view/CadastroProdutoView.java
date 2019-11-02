@@ -96,7 +96,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         setTitle("Compra Personalizada");
         setResizable(false);
 
-        pnlComputador.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informações do Produto", 0, 0, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
+        pnlComputador.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informações do Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
         pnlComputador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel4.setText("Código*");
@@ -223,7 +223,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                 .addGap(6, 6, 6))
         );
 
-        pnlSO.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Caracteristicas do Produto", 0, 0, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
+        pnlSO.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Caracteristicas do Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Dimensões LxAxC (em cm)");
@@ -363,7 +363,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
             }
         });
 
-        pnlHD3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informações de Estoque", 0, 0, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
+        pnlHD3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informações de Estoque", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
 
         jFormattedTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -415,7 +415,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        pnlHD.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informações do Fornecedor", 0, 0, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
+        pnlHD.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informações do Fornecedor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel17.setText("Nome*");
@@ -447,6 +447,11 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         jLabel29.setText("Endereço");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel30.setText("UF");
 
@@ -563,12 +568,12 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                             .addComponent(pnlComputador, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pnlSO, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pnlHD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 47, Short.MAX_VALUE))))
+                        .addGap(0, 57, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(pnlHD3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(31, Short.MAX_VALUE)))
+                    .addContainerGap(70, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -656,6 +661,10 @@ public class CadastroProdutoView extends javax.swing.JFrame {
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox5ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments

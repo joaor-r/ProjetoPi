@@ -27,7 +27,7 @@ public void LoadTable(){
     tmClientes.addColumn("Nome");
     tblCliente.setModel(tmClientes);
     
-    tblCliente.removeColumn(tblCliente.getColumnModel().getColumn(0));
+   // tblCliente.removeColumn(tblCliente.getColumnModel().getColumn(0));
     
     for(String[] c:listaClientes)
         {
