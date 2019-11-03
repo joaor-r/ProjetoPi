@@ -28,7 +28,8 @@ public final class CadastroProdutoView extends javax.swing.JFrame {
         LoadTable();
         this.setLocationRelativeTo(null);
         DesabilitarFormulario();
-        
+        btnSalvarProduto.setEnabled(false);
+        btnCancelarProduto.setEnabled(false);
         
         //Oculto O ID
      //  lblIDProduto.setVisible(false);
@@ -50,15 +51,15 @@ public final class CadastroProdutoView extends javax.swing.JFrame {
           tmProduto.addColumn("LINHA");
    
            tmProduto.addColumn("ESTOQUE");
-           tmProduto.addColumn("UNIDADE");
            tmProduto.addColumn("OBS");
+           tmProduto.addColumn("UNIDADE");
 
           tblProduto.setModel(tmProduto);
           
             //Removo a coluna da View (JTable) mas mantenho na model para armazenar o ID
        
         
-       // tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(17));
+        tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(17));
        // tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(18));
       // tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(19));
  
@@ -519,6 +520,8 @@ txtRefProduto.setEnabled(true);
         LimparFormulario();
         Random gerador = new Random();
         txtIdProduto.setText(Integer.toString(gerador.nextInt(60000)));
+        btnSalvarProduto.setEnabled(true);
+        btnCancelarProduto.setEnabled(true);
         btnAdicionarProduto.setEnabled(false);
         btnExcluirProduto.setEnabled(false);
         btnEditarProduto.setEnabled(false);
@@ -592,11 +595,11 @@ txtRefProduto.getText()
 
                 //Passo ao controller a entrada do usuário e peço para atualizar o banco de dados
                 if(ProdutoController.atualizar(
-                        Integer.parseInt(txtIdProduto.getText()), 
+Integer.parseInt(txtIdProduto.getText()), 
 txtNomeProduto.getText(),
 txtDescricaoProduto.getText(),
 txtCategoriaProduto.getSelectedItem().toString(),
-
+txtValorvendaProduto.getText(),
 
 txtMarcaProduto.getText(),
 txtLinhaProduto.getText(),
@@ -627,6 +630,11 @@ txtRefProduto.getText()
 
     private void btnCancelarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProdutoActionPerformed
      LimparFormulario();
+      btnAdicionarProduto.setEnabled(true);
+        btnExcluirProduto.setEnabled(true);
+        btnEditarProduto.setEnabled(true);
+        btnConsultarProduto.setEnabled(true);
+        
     }//GEN-LAST:event_btnCancelarProdutoActionPerformed
 
     private void txtIdProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProdutoActionPerformed
