@@ -653,43 +653,7 @@ public void LoadTable(){
         tblCarrinho.setModel(listadeProdutos);
         
         //       listProduto.getSelectedValue();*/
-       if(ValidarFormulario())
-        {
-            if(modoTela.equals("Criar"))
-            {
-                //Passo ao controller a entrada do usuário e peço para salvar no banco de dados
-              
-                    //Recarrego a tabela com os dados resgatados do banco de dados
-                    this.LoadTable((txtCodProduto.getText()));
-                    
-                    JOptionPane.showMessageDialog(null,"Carro cadastrado com sucesso!");
-                    LimparFormulario();
-                if (){
-                    JOptionPane.showMessageDialog(null,"Falha ao cadastrar Carro!");
-                }
-
-            }else
-            {
-
-                //Passo ao controller a entrada do usuário e peço para atualizar o banco de dados
-                if(CarroController.atualizar(Integer.parseInt(lblIDCarro.getText()), txtModelo.getText(),txtAno.getText(),txtValor.getText()))
-                {
-                    //Recarrego a tabela com os dados resgatados do banco de dados
-                    this.LoadTable();
-                    JOptionPane.showMessageDialog(this,"Carro atualizado com sucesso!");
-                }else{
-                    JOptionPane.showMessageDialog(this,"Falha ao atualizar Carro!");
-                }
-
-            }
-
-            LimparFormulario();
-            DesabilitarFormulario();
-        
-        
-       
-            
-    }                                              
+      
 
        
     }//GEN-LAST:event_jButton2ActionPerformed
