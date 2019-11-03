@@ -19,14 +19,14 @@ public class SimulaDB {
     
     private static SimulaDB mockdb;
     
-    private ArrayList<Cliente> listaClientes; //Simulo a tabela clientes
-    private ArrayList<Produto> listaProdutos; //Simulo a tabela Produtos
+    private final ArrayList<Cliente> listaClientes; //Simulo a tabela clientes
+    private final ArrayList<Produto> listaProdutos; //Simulo a tabela Produtos
     
     
     private SimulaDB(){
     
-        listaClientes = new ArrayList<Cliente>();
-        listaProdutos = new ArrayList<Produto>();
+        listaClientes = new ArrayList<>();
+        listaProdutos = new ArrayList<>();
     }
     
     public static synchronized SimulaDB getInstance(){

@@ -27,7 +27,7 @@ public void LoadTable(){
     tmClientes.addColumn("Nome");
     tblCliente.setModel(tmClientes);
     
-    tblCliente.removeColumn(tblCliente.getColumnModel().getColumn(0));
+   // tblCliente.removeColumn(tblCliente.getColumnModel().getColumn(0));
     
     for(String[] c:listaClientes)
         {
@@ -152,6 +152,11 @@ public void LoadTable(){
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newpackage/red-cross-icon (1).png"))); // NOI18N
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,6 +192,11 @@ public void LoadTable(){
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

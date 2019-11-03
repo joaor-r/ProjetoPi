@@ -99,23 +99,23 @@ public class ClienteProdutoView extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
-        CampoDados.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Básicos", 0, 0, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
+        CampoDados.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Básicos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
         CampoDados.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        TxtCpf.setText("CPF/CNPJ");
+        TxtCpf.setText("CPF/CNPJ*");
 
         TxtSexo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        TxtSexo.setText("Sexo");
+        TxtSexo.setText("Sexo*");
 
-        TxtNascimento.setText("Data Nascimento");
+        TxtNascimento.setText("Data Nascimento*");
 
-        TxtTelefone.setText("Telefone");
+        TxtTelefone.setText("Telefone*");
 
-        TxtEmail.setText("Email");
+        TxtEmail.setText("Email*");
 
         TxtCelular.setText("Celular");
 
-        TxtNomeCliente.setText("Nome do Cliente");
+        TxtNomeCliente.setText("Nome do Cliente*");
 
         TxtEnvioEmail.setText("Aceita envio de email");
 
@@ -129,7 +129,7 @@ public class ClienteProdutoView extends javax.swing.JFrame {
 
         TxtCelular2.setText("Celular2");
 
-        TxtEstadoCivil.setText("Estado Cívil");
+        TxtEstadoCivil.setText("Estado Cívil*");
 
         ComboBoxEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Divorciado", "Viuvo" }));
 
@@ -273,7 +273,7 @@ public class ClienteProdutoView extends javax.swing.JFrame {
         TxtModuloCliente.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
         TxtModuloCliente.setText("Módulo de Cliente");
 
-        PainelInformacoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Outras Informações", 0, 0, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
+        PainelInformacoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Outras Informações", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
 
         TxtReferencia.setText("Referencias/Obs.:");
 
@@ -306,21 +306,21 @@ public class ClienteProdutoView extends javax.swing.JFrame {
             }
         });
 
-        pnlSO.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados de Endereço", 0, 0, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
+        pnlSO.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados de Endereço", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Logradouro");
+        jLabel6.setText("Rua*");
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Complemento");
 
-        jLabel10.setText("Cidade");
+        jLabel10.setText("Cidade*");
 
         jLabel15.setText("Bairro");
 
-        jLabel21.setText("Numero");
+        jLabel21.setText("Número*");
 
-        jLabel22.setText("UF");
+        jLabel22.setText("UF*");
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC" }));
 
@@ -402,7 +402,7 @@ public class ClienteProdutoView extends javax.swing.JFrame {
             }
         });
 
-        PainelFinanceiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Financeiros", 0, 0, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
+        PainelFinanceiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Financeiros", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 24))); // NOI18N
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel17.setText("Tempo Empregado");
