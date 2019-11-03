@@ -82,19 +82,20 @@ public class ProdutoController {
      * @return lista de string
      */
     public static ArrayList<String[]> getProdutos() {
-        ArrayList<Produto> clientes = ProdutoDAO.getProdutos();
+       
+        ArrayList<Produto> produtos = ProdutoDAO.getProdutos();
         ArrayList<String[]> listaProdutos = new ArrayList<>();
 
-        for (int i = 0; i < clientes.size(); i++) {
-            listaProdutos.add(new String[]{String.valueOf(clientes.get(i).getId()), clientes.get(i).getNome(),
-                String.valueOf(clientes.get(i).getDescricao()),String.valueOf(clientes.get(i).getCategoria()),
-                String.valueOf(clientes.get(i).getSubCategoria()),String.valueOf(clientes.get(i).getValorVenda()),String.valueOf(clientes.get(i).getValorImposto()),
-            String.valueOf(clientes.get(i).getComissao()),String.valueOf(clientes.get(i).getDimensoes()),clientes.get(i).getCor(),
-            String.valueOf(clientes.get(i).getPeso()),String.valueOf(clientes.get(i).getTempoGarantia()),clientes.get(i).getMarca(),
-            clientes.get(i).getLinha(), String.valueOf(clientes.get(i).getCnpjForn()),clientes.get(i).getCidadeForn(),
-            String.valueOf(clientes.get(i).getUfForn()),String.valueOf(clientes.get(i).getContatoForn()),
-            String.valueOf(clientes.get(i).getTelefoneForn()),clientes.get(i).getEmailForn(),String.valueOf(clientes.get(i).getEstoque()),
-            String.valueOf(clientes.get(i).getRef()),String.valueOf(clientes.get(i).getUnidadeM())});
+        for (int i = 0; i < produtos.size(); i++) {
+            listaProdutos.add(new String[]{String.valueOf(produtos.get(i).getId()), produtos.get(i).getNome(),
+                String.valueOf(produtos.get(i).getDescricao()),String.valueOf(produtos.get(i).getCategoria()),
+                String.valueOf(produtos.get(i).getSubCategoria()),String.valueOf(produtos.get(i).getValorVenda()),String.valueOf(produtos.get(i).getValorImposto()),
+            String.valueOf(produtos.get(i).getComissao()),String.valueOf(produtos.get(i).getDimensoes()),produtos.get(i).getCor(),
+            String.valueOf(produtos.get(i).getPeso()),String.valueOf(produtos.get(i).getTempoGarantia()),produtos.get(i).getMarca(),
+            produtos.get(i).getLinha(), String.valueOf(produtos.get(i).getCnpjForn()),produtos.get(i).getCidadeForn(),
+            String.valueOf(produtos.get(i).getUfForn()),String.valueOf(produtos.get(i).getContatoForn()),
+            String.valueOf(produtos.get(i).getTelefoneForn()),produtos.get(i).getEmailForn(),String.valueOf(produtos.get(i).getEstoque()),
+            String.valueOf(produtos.get(i).getRef()),String.valueOf(produtos.get(i).getUnidadeM())});
 
         }
 
