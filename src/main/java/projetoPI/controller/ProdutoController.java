@@ -19,6 +19,7 @@ public class ProdutoController {
      * Método Estático Salvar Salvo os dados do cliente na memória ou no banco
      * de dados
      *
+     * @param pID
      * @param pNome
      * @param pDescricao
      * @param pCategoria
@@ -46,14 +47,10 @@ public class ProdutoController {
      * @return
      */
 
-    public static boolean salvar(String pNome, String pDescricao, String pCategoria, String pSubCategoria, String pValorVenda, String pValorImposto,
-            String pComissao, String pDimensoes, String pCor, String pPeso, String pTempoGarantia, String pMarca, String pLinha, String pCnpjForn,
-            String pNomeForn, String pEnderecoForn, String pCidadeForn, String pUfForn, String pContatoForn, String pTelefoneForn, String pEmailForn,
+    public static boolean salvar(String pNome, String pDescricao, String pCategoria, String pValorVenda, String pMarca, String pLinha,
             String pEstoque, String pUnidadeM, String pRef) {
         //Salvo na memória
-        Produto p = new Produto(pNome, pDescricao, pCategoria, pSubCategoria, pValorVenda, pValorImposto,
-                pComissao, pDimensoes, pCor, pPeso, pTempoGarantia, pMarca, pLinha, pCnpjForn,
-                pNomeForn, pEnderecoForn, pCidadeForn, pUfForn, pContatoForn, pTelefoneForn, pEmailForn,
+        Produto p = new Produto(pNome, pDescricao, pCategoria,  pValorVenda, pMarca, pLinha, 
                 pEstoque, pUnidadeM, pRef);
 
         return ProdutoDAO.salvar(p);
@@ -63,14 +60,10 @@ public class ProdutoController {
         return ProdutoDAO.excluir(pID);
     }
 
-    public static boolean atualizar(int pId, String pNome, String pDescricao, String pCategoria, String pSubCategoria, String pValorVenda, String pValorImposto,
-            String pComissao, String pDimensoes, String pCor, String pPeso, String pTempoGarantia, String pMarca, String pLinha, String pCnpjForn,
-            String pNomeForn, String pEnderecoForn, String pCidadeForn, String pUfForn, String pContatoForn, String pTelefoneForn, String pEmailForn,
+    public static boolean atualizar(int pId, String pNome, String pDescricao, String pCategoria,  String pValorVenda, String pMarca, String pLinha,
             String pEstoque, String pUnidadeM, String pRef) {
-        Produto p = new Produto(pNome, pDescricao, pCategoria, pSubCategoria, pValorVenda, pValorImposto,
-                pComissao, pDimensoes, pCor, pPeso, pTempoGarantia, pMarca, pLinha, pCnpjForn,
-                pNomeForn, pEnderecoForn, pCidadeForn, pUfForn, pContatoForn, pTelefoneForn, pEmailForn,
-                 pEstoque, pUnidadeM, pRef);
+        Produto p = new Produto(pNome, pDescricao, pCategoria,  pValorVenda, 
+               pMarca, pLinha,  pEstoque, pUnidadeM, pRef);
 
         return ProdutoDAO.atualizar(p);
 
@@ -89,12 +82,8 @@ public class ProdutoController {
         for (int i = 0; i < produtos.size(); i++) {
             listaProdutos.add(new String[]{String.valueOf(produtos.get(i).getId()), produtos.get(i).getNome(),
                 String.valueOf(produtos.get(i).getDescricao()),String.valueOf(produtos.get(i).getCategoria()),
-                String.valueOf(produtos.get(i).getSubCategoria()),String.valueOf(produtos.get(i).getValorVenda()),String.valueOf(produtos.get(i).getValorImposto()),
-            String.valueOf(produtos.get(i).getComissao()),String.valueOf(produtos.get(i).getDimensoes()),produtos.get(i).getCor(),
-            String.valueOf(produtos.get(i).getPeso()),String.valueOf(produtos.get(i).getTempoGarantia()),produtos.get(i).getMarca(),
-            produtos.get(i).getLinha(), String.valueOf(produtos.get(i).getCnpjForn()),produtos.get(i).getCidadeForn(),
-            String.valueOf(produtos.get(i).getUfForn()),String.valueOf(produtos.get(i).getContatoForn()),
-            String.valueOf(produtos.get(i).getTelefoneForn()),produtos.get(i).getEmailForn(),String.valueOf(produtos.get(i).getEstoque()),
+               String.valueOf(produtos.get(i).getValorVenda()),produtos.get(i).getMarca(),
+            produtos.get(i).getLinha(),String.valueOf(produtos.get(i).getEstoque()),
             String.valueOf(produtos.get(i).getRef()),String.valueOf(produtos.get(i).getUnidadeM())});
 
         }

@@ -125,26 +125,17 @@ public class SimulaDB {
             {
                 item.setNome(p.getNome());
                 item.setCategoria(p.getCategoria());
-                item.setCidadeForn(p.getCidadeForn());
-                item.setCnpjForn(p.getCnpjForn());
-                item.setComissao(p.getComissao());
-                item.setContatoForn(p.getContatoForn());
-                item.setCor(p.getCor());
+
                 item.setDescricao(p.getDescricao());
-                item.setDimensoes(p.getDimensoes());
-                item.setEmailForn(p.getEmailForn());
+
                 item.setEstoque(p.getEstoque());
                 item.setLinha(p.getLinha());
                 item.setMarca(p.getMarca());
-                item.setNomeForn(p.getNomeForn());
-                item.setPeso(p.getPeso());
+
                 item.setRef(p.getRef());
-                item.setSubCategoria(p.getSubCategoria());
-                item.setTelefoneForn(p.getTelefoneForn());
-                item.setTempoGarantia(p.getTempoGarantia());
-                item.setUfForn(p.getUfForn());
+
                 item.setUnidadeM(p.getUnidadeM());
-                item.setValorImposto(p.getValorImposto());
+ 
                 item.setValorVenda(p.getValorVenda());
             }
         }
