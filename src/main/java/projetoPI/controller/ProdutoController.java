@@ -91,5 +91,37 @@ public class ProdutoController {
         return listaProdutos;
 
     }
+    public static ArrayList<String[]> buscaProduto(String categoria) {
+        ArrayList<Produto> produtos = ProdutoDAO.buscaProduto(categoria);
+        ArrayList<String[]> resultado = new ArrayList<>();
 
+        for (Produto p : produtos) {
+            resultado.add(new String[]{
+                String.valueOf(p.getId()),
+                p.getNome(),
+                p.getEstoque(),
+                p.getValorVenda()});
+        }
+        return resultado;
+
+    }
+
+  //  public static ArrayList<String[]> buscaProduto(String nome) {
+    //    ArrayList<ProdutoModel> produtos = ProdutoDAO.buscaProduto(nome);
+      //  ArrayList<String[]> resultado = new ArrayList<>();
+
+        //for (ProdutoModel p : produtos) {
+          //  resultado.add(new String[]{
+            //    String.valueOf(p.getId()),
+              //  p.getNome(),
+                //p.getMarca(),
+                //p.getFornecedor(),
+                //String.valueOf(p.getValor()),
+                //String.valueOf(p.getQuantidade()),
+                //p.getDescricao()});
+
+        //}
+        //return resultado;
+
+    //}
 }

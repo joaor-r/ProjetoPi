@@ -160,5 +160,101 @@ public class SimulaDB {
         
         return true;
     }
+     public ArrayList<Produto> buscaProduto(String categoria) {
+        ArrayList<Produto> resultado = new ArrayList<>();
+
+        for (Produto p : listaProdutos) {
+            if (p.getCategoria().equals(categoria)) {
+                resultado.add(p);
+            }
+        }
+
+        return resultado;
+    }
+
+    /*public ArrayList<Produto> buscaProduto(String nome) {
+        ArrayList<Produto> resultado = new ArrayList<>();
+
+        for (Produto p : listaProdutos) {
+            if (p.getNome().contains(nome)) {
+                resultado.add(p);
+            }
+        }
+
+        return resultado;
+    }*/
+
+    public ArrayList<Cliente> buscaCliente(int id) {
+        ArrayList<Cliente> resultado = new ArrayList<>();
+
+        for (Cliente c : listaClientes) {
+            if (c.getId() == id) {
+                resultado.add(c);
+            }
+        }
+
+        return resultado;
+    }
+
+    public ArrayList<Cliente> buscaCliente(String nome) {
+        ArrayList<Cliente> resultado = new ArrayList<>();
+
+        for (Cliente c : listaClientes) {
+            if (c.getNome().contains(nome)) {
+                resultado.add(c);
+            }
+        }
+
+        return resultado;
+    }
+
+    public ArrayList<Cliente> buscaCliente(long Cpf) {
+        ArrayList<Cliente> resultado = new ArrayList<>();
+
+        String cpf = String.valueOf(Cpf);
+
+        for (Cliente c : listaClientes) {
+            if (c.getCpf().equals(cpf)) {
+                resultado.add(c);
+            }
+        }
+
+        return resultado;
+    }
+
+    /*public ArrayList<VendaModel> buscaVenda(int id) {
+        ArrayList<VendaModel> resultado = new ArrayList<>();
+
+        for (VendaModel v : listaVendas) {
+            if (v.getIdVenda() == id) {
+                resultado.add(v);
+            }
+        }
+
+        return resultado;
+    }
+
+    public ArrayList<VendaModel> buscaVenda(String cpf) {
+        ArrayList<VendaModel> resultado = new ArrayList<>();
+
+        for (VendaModel v : listaVendas) {
+            if (v.getCpfCliente().equals(cpf)) {
+                resultado.add(v);
+            }
+        }
+
+        return resultado;
+    }
+
+    public ArrayList<VendaModel> buscaVenda(String dataInicio, String dataFim) {
+        ArrayList<VendaModel> resultado = new ArrayList<>();
+
+        for (VendaModel v : listaVendas) {
+            if (Utilidades.buscaPeriodo(v.getData(), dataInicio, dataFim)) {
+                resultado.add(v);
+            }
+        }
+        return resultado;
+    }*/
     
 }

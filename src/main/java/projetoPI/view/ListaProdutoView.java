@@ -6,10 +6,12 @@
 package projetoPI.view;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import projetoPI.DAO.ProdutoDAO;
 
 import projetoPI.controller.ProdutoController;
-
+import projetoPI.model.Produto;
 
 public final class ListaProdutoView extends javax.swing.JFrame {
 
@@ -17,46 +19,43 @@ public final class ListaProdutoView extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         LoadTable();
-      //  tblProduto.setVisible(true);
+        //  tblProduto.setVisible(true);
     }
-public void LoadTable(){
-    tblProduto.setVisible(true);
-    ArrayList<String[]> listaProdutos = ProdutoController.getProdutos();
-    
-    DefaultTableModel tmProduto = new DefaultTableModel();
-    
-    
-  
-    
-          tmProduto.addColumn("ID");
-          tmProduto.addColumn("Nome");
-          tmProduto.addColumn("Categoria");
-          
-          tblProduto.setModel(tmProduto);
-          
-            //Removo a coluna da View (JTable) mas mantenho na model para armazenar o ID
-      //  tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(20));
-     //  tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(21));
-     //  tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(22));
- 
-    //Opção 2 - Descomentar linhas abaixo caso queira reutilizar o modelo padrão
+
+    public void LoadTable() {
+        ArrayList<String[]> listaProdutos = ProdutoController.getProdutos();
+
+        DefaultTableModel tmProduto = new DefaultTableModel();
+
+        tmProduto.addColumn("ID");
+        tmProduto.addColumn("Nome");
+        tmProduto.addColumn("Estoque");
+        tmProduto.addColumn("Valor");
+
+        tblProduto.setModel(tmProduto);
+
+        //Removo a coluna da View (JTable) mas mantenho na model para armazenar o ID
+        //  tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(20));
+        //  tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(21));
+        //  tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(22));
+        //Opção 2 - Descomentar linhas abaixo caso queira reutilizar o modelo padrão
         //Resgato o modelo da tabela
-       // DefaultTableModel tmProduto = (DefaultTableModel) this.txtIdProduto.getModel();
+        // DefaultTableModel tmProduto = (DefaultTableModel) this.txtIdProduto.getModel();
         ////Limpo a tabela, excluindo todas as linhas
         //tmClientes.setRowCount(0);
-    
-    for(String[] c : listaProdutos)
-        {
+        for (String[] c : listaProdutos) {
             tmProduto.addRow(c);
         }
-        
-        //Defino o tamanho para cada coluna
-    // tmProduto.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
-      tblProduto.getColumnModel().getColumn(0).setPreferredWidth(10);
-      tblProduto.getColumnModel().getColumn(1).setPreferredWidth(100);
-      tblProduto.getColumnModel().getColumn(2).setPreferredWidth(100);
 
-}
+        //Defino o tamanho para cada coluna
+        // tmProduto.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        tblProduto.getColumnModel().getColumn(0).setPreferredWidth(10);
+        tblProduto.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tblProduto.getColumnModel().getColumn(2).setPreferredWidth(100);
+        tblProduto.getColumnModel().getColumn(3).setPreferredWidth(100);
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,7 +72,7 @@ public void LoadTable(){
         tblProduto = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         btnAtualizar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        categoriaBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         btnSelecionar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -142,10 +141,10 @@ public void LoadTable(){
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cama, Mesa e Banho", "Utensilios Domesticos", "Decoracao", "Iluminacao", "Movel" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cama, Mesa e Banho", "Utensilios Domesticos", "Decoracao", "Iluminacao", "Movel" }));
+        categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                categoriaBoxActionPerformed(evt);
             }
         });
 
@@ -168,7 +167,7 @@ public void LoadTable(){
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(categoriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(62, 62, 62)
                                 .addComponent(btnAtualizar))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -183,7 +182,7 @@ public void LoadTable(){
                     .addComponent(jLabel14))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(categoriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(btnAtualizar))
                 .addGap(18, 18, 18)
@@ -235,17 +234,36 @@ public void LoadTable(){
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
-         
+
     }//GEN-LAST:event_btnSelecionarActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        // TODO add your handling code here:
-        LoadTable();
+        // TODO add your handling code here:     
+        
+         if (tblProduto.getRowCount() > 0) {
+
+                if (!categoriaBox.getSelectedItem().toString().equals("")) {
+                    String categoria = String.valueOf(categoriaBox.getSelectedItem());
+
+                    buscaProduto(categoria);
+                } /*else {
+                    nome = txtNome.getText().toLowerCase();
+
+                    buscaProduto();
+                }*/
+
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há produtos para buscar!");
+        }
+                                                
+
+
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void categoriaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_categoriaBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,11 +315,38 @@ public void LoadTable(){
         });
     }
 
+    public void buscaProduto(String categoria) {
+        ArrayList<String[]> linhasProdutos = ProdutoController.buscaProduto(categoria);
+
+        if (!linhasProdutos.isEmpty()) {
+
+            DefaultTableModel tmProduto = new DefaultTableModel();
+            tmProduto.addColumn("ID");
+            tmProduto.addColumn("Nome");
+            tmProduto.addColumn("Estoque");
+            tmProduto.addColumn("Valor");
+            for (String[] p : linhasProdutos) {
+                tmProduto.addRow(p);
+            }
+
+            tblProduto.setModel(tmProduto);
+            tblProduto.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblProduto.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tblProduto.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tblProduto.getColumnModel().getColumn(3).setPreferredWidth(100);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Produto não encontrado!");
+        }
+
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSelecionar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> categoriaBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;

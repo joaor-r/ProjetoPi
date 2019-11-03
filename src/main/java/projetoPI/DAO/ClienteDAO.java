@@ -36,5 +36,11 @@ public class ClienteDAO {
     {
         return SimulaDB.getInstance().getClientes();
     }
-    
+        public static ArrayList<Cliente> buscaCliente(int id) {
+        return SimulaDB.getInstance().buscaCliente(id);
+    }
+
+    public static ArrayList<Cliente> buscaCliente(String nome) {
+        return SimulaDB.getInstance().buscaCliente(nome);
+    }
 }

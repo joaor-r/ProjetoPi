@@ -36,5 +36,13 @@ public class ProdutoDAO {
     {
         return SimulaDB.getInstance().getProdutos();
     }
+    public static ArrayList<Produto> buscaProduto(String categoria) {
+        return SimulaDB.getInstance().buscaProduto(categoria);
+    }
+
+   // public static ArrayList<Produto> buscaProduto(String nome) {
+     //   return SimulaDB.getInstance().buscaProduto(nome);
+    //}
     
+
 }
