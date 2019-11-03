@@ -17,30 +17,45 @@ public final class ListaProdutoView extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         LoadTable();
+      //  tblProduto.setVisible(true);
     }
 public void LoadTable(){
+    tblProduto.setVisible(true);
     ArrayList<String[]> listaProdutos = ProdutoController.getProdutos();
     
     DefaultTableModel tmProduto = new DefaultTableModel();
     
     
-      tmProduto.addColumn("Código");
-      tmProduto.addColumn("Nome do Produto");
+  
     
-    tblProduto.setModel(tmProduto);
+          tmProduto.addColumn("ID");
+          tmProduto.addColumn("Nome");
+          tmProduto.addColumn("Categoria");
+          
+          tblProduto.setModel(tmProduto);
+          
+            //Removo a coluna da View (JTable) mas mantenho na model para armazenar o ID
+      //  tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(20));
+     //  tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(21));
+     //  tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(22));
+ 
+    //Opção 2 - Descomentar linhas abaixo caso queira reutilizar o modelo padrão
+        //Resgato o modelo da tabela
+       // DefaultTableModel tmProduto = (DefaultTableModel) this.txtIdProduto.getModel();
+        ////Limpo a tabela, excluindo todas as linhas
+        //tmClientes.setRowCount(0);
     
-    
-    
-    for(String[] c:listaProdutos)
+    for(String[] c : listaProdutos)
         {
             tmProduto.addRow(c);
         }
         
         //Defino o tamanho para cada coluna
-//        tblClientes.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
-        tblProduto.getColumnModel().getColumn(0).setPreferredWidth(300);
-        tblProduto.getColumnModel().getColumn(1).setPreferredWidth(100);
-    
+    // tmProduto.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+      tblProduto.getColumnModel().getColumn(0).setPreferredWidth(10);
+      tblProduto.getColumnModel().getColumn(1).setPreferredWidth(100);
+      tblProduto.getColumnModel().getColumn(2).setPreferredWidth(100);
+
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,6 +72,9 @@ public void LoadTable(){
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProduto = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        btnAtualizar = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
         btnSelecionar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
@@ -116,6 +134,23 @@ public void LoadTable(){
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
         jLabel2.setText("Selecione Produto");
 
+        btnAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newpackage/blue-search-icon.png"))); // NOI18N
+        btnAtualizar.setText("Pesquisa");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cama, Mesa e Banho", "Utensilios Domesticos", "Decoracao", "Iluminacao", "Movel" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Categoria");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -123,12 +158,21 @@ public void LoadTable(){
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)))
-                .addContainerGap(298, Short.MAX_VALUE))
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(62, 62, 62)
+                                .addComponent(btnAtualizar))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,9 +181,14 @@ public void LoadTable(){
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnAtualizar))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel1);
@@ -160,12 +209,11 @@ public void LoadTable(){
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
+                        .addGap(81, 81, 81)
                         .addComponent(btnSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -179,7 +227,7 @@ public void LoadTable(){
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSelecionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSelecionar))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -187,8 +235,17 @@ public void LoadTable(){
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
-        // TODO add your handling code here:
+         
     }//GEN-LAST:event_btnSelecionarActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        // TODO add your handling code here:
+        LoadTable();
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,8 +298,11 @@ public void LoadTable(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSelecionar;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
