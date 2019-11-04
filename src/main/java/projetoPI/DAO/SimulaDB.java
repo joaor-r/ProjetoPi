@@ -163,9 +163,9 @@ public class SimulaDB {
      public ArrayList<Produto> buscaProduto(String categoria) {
         ArrayList<Produto> resultado = new ArrayList<>();
 
-        for (Produto p : listaProdutos) {
-            if (p.getCategoria().equals(categoria)) {
-                resultado.add(p);
+        for (Produto c : listaProdutos) {
+            if (c.getCategoria().equals(categoria)) {
+                resultado.add(c);
             }
         }
 
